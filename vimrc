@@ -1,12 +1,12 @@
 " Setting up vundle
-let iCanHazVundle=1
+let iCanHazVundle=0
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
     echo "Installing vundle..."
-    echo ""
+    echo
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+    let iCanHazVundle=1
 endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -27,6 +27,13 @@ Bundle 'vim-scripts/L9'
 "Bundle 'Raimondi/delimitMate'
 "Bundle 'vim-scripts/vimwiki'
 "Bundle 'scrooloose/syntastic'
+
+" install plugins
+if iCanHazVundle == 1
+    echo "Installing bundles"
+    echo
+    :BundleInstall
+endif
 " End of vundle
 
 ""vim not vi
