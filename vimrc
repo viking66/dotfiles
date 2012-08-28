@@ -1,4 +1,4 @@
-" Setting up vundle
+" putting the fundle in your <vundle>
 let iCanHazVundle=0
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -11,7 +11,7 @@ endif
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" plugins
+" <bundles> of joy
 Bundle 'gmarik/vundle'
 Bundle 'gregsexton/Muon'
 Bundle 'michalbachowski/vim-wombat256mod'
@@ -28,141 +28,96 @@ Bundle 'vim-scripts/L9'
 "Bundle 'vim-scripts/vimwiki'
 "Bundle 'scrooloose/syntastic'
 
-" install plugins
+" <bundles> gots to be <git>
 if iCanHazVundle == 1
     echo "Installing bundles"
     echo
     :BundleInstall
 endif
-" End of vundle
 
-""vim not vi
+"" embrace the <random>
 set nocompatible
-
-""""""" colors """"""
-""syntax highlighting
-:syntax enable
-""dark background
-set background=dark
-""enable 256 colors
-set t_Co=256
-""make things pretty
-:colorscheme muon
-
-"""""" misc """"""
-""filetype specific plugins and indents
 filetype plugin indent on
-""when file changes outsied of vim autoread changes
 set autoread
+set lazyredraw
+set noerrorbells
 
-""""""" dackups and swap """"""
-""make sure the dirs exist
+"" dream in <color>
+:syntax enable
+set background=dark
+set t_Co=256
+:colorscheme muon
+set showmatch
+
+"" <back> that shit <up>
 silent !mkdir -p ~/.vim/{backup,tmp}
-""backup before overwriting
 set backup
-""set the backup dir
 set backupdir=~/.vim/backup
-""set the swap file dir
 set directory=~/.vim/tmp
 
-"""""" yankring """"""
-""dir for history file
-let g:yankring_history_dir = '~/.vim/backup'
-
-"""""" whitespace """"""
-""no extra pixels added between lines
-set linespace=0
-""in insert mode tabs expand to spaces
+"" i don't need <no> stinking <tabs>
 set expandtab
-""tab at front of line inserts spaces (not autocomplete)
 set smarttab
-""\t = 4 spaces
 set tabstop=4
-""4 spaces for each step of (auto)indent
 set shiftwidth=4
-""tab is 4 spaces in edit operations
 set softtabstop=4
-""copy indent from current line to next line
 set autoindent
-""make backspace more friendly
 set backspace=indent,eol,start
-""highlight trailing whitespace
+
+"" bleed the <extra> <whitespace>
 highlight ExtraWhitespace ctermbg=red guibg=red
 au ColorScheme * highlight ExtraWhitespace guibg=red
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
-"""""" look and feel """""" 
-""title on
+"" instert <status> and <title> here
 set title
-""title = filename [vim]
 set titlestring=%f\ [vim]
-""always show status bar
 set laststatus=2
-""pretty status line
-set statusline=%F%m%r%h%w\ %y\ [%p%%]\ [%c:%l:%L]
-""print line numbers
-set number
-""at least 5 columns for line numbers
-set numberwidth=5
-""minimum num lines above and below cursor
-set scrolloff=10
-""minimum num columns left and right of cursor
-set sidescrolloff=10
-""highlight matching bracket
-set showmatch
-""always report changes for ':' commands
 set report=0
-""show partial command at bottom of screen
 set showcmd
-""do not redraw while executing macros
-set lazyredraw
-""stop the beep for error messages
-set noerrorbells
+"set statusline=%F%m%r%h%w\ %y\ [%p%%]\ [%c:%l:%L]
 
-"""""" completion """"""
-""enable completion menu
+"" safety in <numbers>
+set number
+set numberwidth=5
+
+"" <scroll> like a mofo
+set scrolloff=10
+set sidescrolloff=10
+
+"" expand to <completion>
 set wildmenu
-""list matches and complete longest matching substring
 set wildmode=list:longest
-""turn on omnicompletion
 set ofu=syntaxcomplete#Complete
-""complete up to longest matching substring
 set completeopt+=longest
-""use conext to decide completion
+
+"" check my bling <yankring> yo
+let g:yankring_history_dir = '~/.vim/backup'
+
+"" <supertab> is superfly
 let g:SuperTabDefaultCompletionType = "context"
-""only complete up to longest matching substring
 let g:SuperTabLongestEnhanced = 1
-""automatically highlight first possible match
 let g:SuperTabLongestHighlight = 1
 
-"""""" search """"""
-""goto match as you type
+"" the <search> ends here
 set incsearch
-""ignore case in search
 set ignorecase
-""search has upper case chars -> case sensitive
 set smartcase
 
-"""""" vimdiff """"""
-""in diff mode ignore changes in amount of whitespaces
+"" hide some <vimdiff> madness
 set diffopt+=iwhite
-""in diff mode ignore changes in case
 set diffopt+=icase
 
-"""""" mappings """"""
-""now ';' con be used instead of ':'
-map ; :
-""leader is ','
+"" follow the <leader>
 let mapleader = ","
-""leader is ','
 let g:mapleader = ","
-""toggle spell/nospell
 nmap <leader>s :set spell!<CR>
-""toggle crosshair
-nmap <leader>x :exec &cuc && &cul ? "set nocuc nocul" : "set cuc cul"<CR>
-""toggle relative/absolute line numbers
+
+"" who needs a <map> when you have gps
+map ; :
+nmap <leader>h :set hlsearch!<CR>
 nmap <leader>n :exec &nu ? "set rnu" : "set nu"<CR>
-""toggle 80 column mark
 nmap <leader>c :exec &cc=="" ? "set cc=80" : "set cc="<CR>
+nmap <leader>x :exec &cuc && &cul ? "set nocuc nocul" : "set cuc cul"<CR>
