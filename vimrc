@@ -65,6 +65,10 @@ set backupdir=~/.vim/backup
 ""set the swap file dir
 set directory=~/.vim/tmp
 
+"""""" yankring """"""
+""dir for history file
+let g:yankring_history_dir = '~/.vim/backup'
+
 """""" whitespace """"""
 ""no extra pixels added between lines
 set linespace=0
@@ -82,6 +86,12 @@ set softtabstop=4
 set autoindent
 ""make backspace more friendly
 set backspace=indent,eol,start
+""highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 """""" look and feel """""" 
 ""title on
@@ -149,44 +159,10 @@ let mapleader = ","
 ""leader is ','
 let g:mapleader = ","
 ""toggle spell/nospell
-nmap <leader>s :call g:ToggleSpell()<CR>
+nmap <leader>s :set spell!<CR>
 ""toggle crosshair
-nmap <leader>c :call g:ToggleCrosshair()<CR>
+nmap <leader>x :exec &cuc && &cul ? "set nocuc nocul" : "set cuc cul"<CR>
 ""toggle relative/absolute line numbers
-nmap <leader>n :call g:ToggleRnu()<Esc>h 
-
-"""""" yankring """"""
-""dir for history file
-let g:yankring_history_dir = '~/.vim/backup'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""toggles between relative line numbers and absolute line numbers
-function! g:ToggleRnu()
-    if (&rnu == 1)
-        set nu
-    else
-        set rnu
-    endif
-endfunc
-
-""toggles spellcheck on/off
-function! g:ToggleSpell()
-    if (&spell == 1)
-        set nospell
-    else
-        set spell
-    endif
-endfunc
-
-""toggles crosshair on/off
-function! g:ToggleCrosshair()
-    if (&cursorline || &cursorcolumn)
-        set nocursorline
-        set nocursorcolumn
-    else
-        set cursorline
-        set cursorcolumn
-    endif
-endfunc
+nmap <leader>n :exec &nu ? "set rnu" : "set nu"<CR>
+""toggle 80 column mark
+nmap <leader>c :exec &cc=="" ? "set cc=80" : "set cc="<CR>
