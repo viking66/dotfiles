@@ -1,5 +1,6 @@
 ! set name
 URxvt*termName:         rxvt-unicode
+urxvt.loginShell:       true
 
 ! font
 urxvt*font:             xft:Inconsolata:pixelsize=10:antialias=true:hinting=true
@@ -8,14 +9,12 @@ urxvt*italicFont:       xft:Inconsolata:pixelsize=10:antialias=true:italic:autoh
 urxvt*bolditalicFont:   xft:Inconsolata:pixelsize=10:antialias=true:bold:italic:autohint=true:hinting=true
 
 ! window settings
-urxvt*background:       #000000
-urxvt*foreground:       #717171
 urxvt*saveLines:        10000
 urxvt*scrollBar_right:  false
 urxvt*scrollBar:        false
 urxvt*borderLess:       false
 urxvt*cursorBlink:      true
-urxvt*cursorUnderline:  true
+!urxvt*cursorUnderline:  true
 urxvt*cursorColor:      #808182
 urxvt*colorBD:          #816955
 urxvt*internalBorder:   2
@@ -40,347 +39,88 @@ URxvt.tabbed.title:     no
 URxvt.urlLauncher:      /usr/bin/chromium
 URxvt.matcher.button:   1
 
-! colors
-*color0:                #3d3e3d
-*color8:                #5a5b5c
-*color1:                #755a5b
-*color9:                #a37679
-*color2:                #68755a
-*color10:               #87a376
-*color3:                #756e5a
-*color11:               #a39b76
-*color4:                #5b6976
-*color12:               #758ba3
-*color5:                #755b76
-*color13:               #9f76a3
-*color6:                #5b7674
-*color14:               #75a3a1
-*color7:                #808080
-*color15:               #aeafb0
-!======================================================
-!======================================================
-!*color0:               #2E3436
-!*color8:               #555753
-!*color1:               #a31604
-!*color9:               #c60001
-!*color2:               #447241
-!*color10:              #27a343
-!*color3:               #c1951a
-!*color11:              #d5a30e
-!*color4:               #425387
-!*color12:              #4a5a8d
-!*color5:               #965d98
-!*color13:              #893c8c
-!*color6:               #06989A
-!*color14:              #12bccb
-!*color7:               #D3D7CF
-!*color15:              #EEEEEC
-!======================================================
-!*color0:               #434343
-!*color8:               #5d5f5e
-!*color1:               #a16a71
-!*color9:               #c7838f
-!*color2:               #7aa16a
-!*color10:              #93c783
-!*color3:               #a1926a
-!*color11:              #c7b983
-!*color4:               #6a80a1
-!*color12:              #839fc7
-!*color5:               #916aa1
-!*color13:              #c483c7
-!*color6:               #6aa0a1
-!*color14:              #83c7bc
-!*color7:               #a8a8a8
-!*color15:              #cacac8
-!======================================================
-!*background:           #000000
-!*foreground:           #b09292
-!*color0:               #293b3b
-!*color8:               #344040
-!*color1:               #bf5357
-!*color9:               #bf6367
-!*color2:               #41a551
-!*color10:              #51a55f
-!*color3:               #aea64f
-!*color11:              #aea75d
-!*color4:               #416ea5
-!*color12:              #5177a5
-!*color5:               #bf6053 
-!*color13:              #bf6e63
-!*color6:               #714da5
-!*color14:              #7859a5
-!*color7:               #876868
-!*color15:              #876f6f
-!======================================================
-!*color0:               #4a4b4a
-!*color8:               #696969
-!*color1:               #D7699A
-!*color9:               #F5A2B5
-!*color2:               #80D468
-!*color10:              #A3F2A0
-!*color3:               #D7A169
-!*color11:              #F5CDA2
-!*color4:               #6985D7
-!*color12:              #A2C1F5
-!*color5:               #C86AD4
-!*color13:              #D2A2F5
-!*color6:               #6FCCD1
-!*color14:              #A0E9F2
-!*color7:               #DBDCDC
-!*color15:              #FDFDFD
-!======================================================
-!*color0:               #222222
-!*color8:               #454545
-!*color1:               #B22222
-!*color9:               #FA8072
-!*color2:               #556B2F
-!*color10:              #9ACD32
-!*color3:               #B8860B
-!*color11:              #DAA520
-!*color4:               #4682B4
-!*color12:              #6495ED
-!*color5:               #9932CC
-!*color13:              #DA70D6
-!*color6:               #87CEEB
-!*color14:              #B0E0E6
-!*color7:               #C0C0C0
-!*color15:              #FFFFFF
-!======================================================
-!*background:           #333333
-!*foreground:           #CCCCCC
-!*cursorColor:          #999999
-!*colorBD:              #FFFFFF
-!*colorUL:              #CCCCFF
-!*color0:               #666666
-!*color8:               #999999
-!*color1:               #CC6666
-!*color9:               #FF9999
-!*color2:               #99CC66
-!*color10:              #99FF99
-!*color3:               #CC9966
-!*color11:              #FFFF99
-!*color4:               #6699CC
-!*color12:              #99CCFF
-!*color5:               #CC6699
-!*color13:              #FF99CC
-!*color6:               #66CCCC
-!*color14:              #99FFFF
-!*color7:               #CCCCCC
-!*color15:              #FFFFFF
-!======================================================
-!*color0:               #282828
-!*color8:               #494949
-!*color1:               #b76969
-!*color9:               #b87e7e
-!*color2:               #719d72
-!*color10:              #839d84
-!*color3:               #909858
-!*color11:              #919864
-!*color4:               #68668f
-!*color12:              #73718f
-!*color5:               #966894
-!*color13:              #987397
-!*color6:               #688891
-!*color14:              #758c93
-!*color7:               #8e8e8e
-!*color15:              #aeaeae
-!======================================================
-!*background:           #333333
-!*foreground:           #CCCCCC
-!*cursorColor:          #999999
-!*colorBD:              #FFFFFF
-!*colorUL:              #CCCCFF
-!*color0:               #666666
-!*color8:               #999999
-!*color1:               #CC6666
-!*color9:               #FF9999
-!*color2:               #66cc99
-!*color10:              #99FFCC
-!*color3:               #CC9966
-!*color11:              #FFCC99
-!*color4:               #6699CC
-!*color12:              #99CCFF
-!*color5:               #CC6699
-!*color13:              #FF99CC
-!*color6:               #66CCCC
-!*color14:              #99FFFF
-!*color7:               #CCCCCC
-!*color15:              #FFFFFF
-!======================================================
-!*color0:               #3E3E3E
-!*color8:               #525252
-!*color1:               #C27067
-!*color9:               #DB938C
-!*color2:               #539C4F
-!*color10:              #69E9A6
-!*color3:               #CF5E18
-!*color11:              #C0845E
-!*color4:               #1DBCAD
-!*color12:              #75C1B9
-!*color5:               #8F73D2
-!*color13:              #AA93E1
-!*color6:               #10ED96
-!*color14:              #5EE3AE
-!*color7:               #B9B9B9
-!*color15:              #D0D0D0
-!======================================================
-!*background:           #333333
-!*foreground:           #cccccc
-!*cursorColor:          #999999
-!*colorBD:              #ffffff
-!*colorUL:              #99cc66
-!*color0:               #666666
-!*color8:               #999999
-!*color1:               #CC6699
-!*color9:               #FF99CC
-!*color2:               #99CC66
-!*color10:              #CCFF99
-!*color3:               #CC9966
-!*color11:              #FFCC99
-!*color4:               #6699CC
-!*color12:              #99CCFF
-!*color5:               #9966CC
-!*color13:              #CC99FF
-!*color6:               #66CC99
-!*color14:              #99FFCC
-!*color7:               #CCCCCC
-!*color15:              #FFFFFF
-!======================================================
-!*color0:               #454545
-!*color8:               #727272
-!*color1:               #D44A40
-!*color9:               #D4746A
-!*color2:               #98CB3C
-!*color10:              #AFCB66
-!*color3:               #D4B63C
-!*color11:              #D4BE66
-!*color4:               #5A89C4
-!*color12:              #847FC4
-!*color5:               #904AC4
-!*color13:              #A774C4
-!*color6:               #5ACBBE
-!*color14:              #84CBBE
-!*color7:               #A5A5A5
-!*color15:              #C5C5C5
-!======================================================
-!*color0:               #191919
-!*color8:               #191919
-!*color1:               #A30EFF
-!*color9:               #520085
-!*color2:               #34D4CC
-!*color10:              #12B2B8
-!*color3:               #9B54C3
-!*color11:              #643C7B
-!*color4:               #0099CC
-!*color12:              #006699
-!*color5:               #49386E
-!*color13:              #774AD8
-!*color6:               #167290
-!*color14:              #1C4A59
-!*color7:               #a0a0a0
-!*color15:              #a0a0a0
-!======================================================
-!*color0:               #2D2D2D
-!*color8:               #3D3D3D
-!*color1:               #98422B
-!*color9:               #B6310E
-!*color2:               #5D8A45
-!*color10:              #569E30
-!*color3:               #98782B
-!*color11:              #B6850E
-!*color4:               #2F568B
-!*color12:              #1C539D
-!*color5:               #892898
-!*color13:              #A10EB6
-!*color6:               #2A9878
-!*color14:              #0EB685
-!*color7:               #B2B2B2
-!*color15:              #FFFFFF
-!======================================================
-!*color0:               #666666
-!*color8:               #999999
-!*color1:               #CC6666
-!*color9:               #FF9999
-!*color2:               #66cc99
-!*color10:              #99FFCC
-!*color3:               #CC9966
-!*color11:              #FFCC99
-!*color4:               #6699CC
-!*color12:              #99CCFF
-!*color5:               #CC6699
-!*color13:              #FF99CC
-!*color6:               #66CCCC
-!*color14:              #99FFFF
-!*color7:               #CCCCCC
-!*color15:              #FFFFFF
-!======================================================
-!*color0:               #000000
-!*color8:               #444444
-!*color1:               #B28284
-!*color9:               #CC9597
-!*color2:               #82B284
-!*color10:              #95CC97
-!*color3:               #B2B282
-!*color11:              #CCCC95
-!*color4:               #8292B2
-!*color12:              #95A7CC
-!*color5:               #A082B2
-!*color13:              #B795CC
-!*color6:               #82B2A6
-!*color14:              #95CCBE
-!*color7:               #B2B2B2
-!*color15:              #BDBDBD
-!======================================================
-!*background:           #151515
-!*foreground:           #6BC3C5
-!*colorUL:              #4E4FFF
-!*color0:               #151515
-!*color8:               #777070
-!*color1:               #7221FB
-!*color9:               #923EFF
-!*color2:               #34D4CC
-!*color10:              #12B2B8
-!*color3:               #54E72D
-!*color11:              #6BBF59
-!*color4:               #3472D9
-!*color12:              #3875A2
-!*color5:               #774AD8
-!*color13:              #49386E
-!*color6:               #0EA5C8
-!*color14:              #058FAF
-!*color7:               #6BC3C5
-!*color15:              #A0A0A0
-!======================================================
-!*color0:               #3A4B61
-!*color8:               #6C7F96
-!*color1:               #BB4B61
-!*color9:               #FF7F96
-!*color2:               #49B496
-!*color10:              #7EECC6
-!*color3:               #BB7F61
-!*color11:              #FFB496
-!*color4:               #497FC6
-!*color12:              #7EB4F2
-!*color5:               #BB4B96
-!*color13:              #FF7FC6
-!*color6:               #49B4C6
-!*color14:              #7EECF2
-!*color7:               #A6B4C6
-!*color15:              #E8ECF2
-!======================================================
-!*color0:               #555555
-!*color8:               #888888
-!*color1:               #CC5555
-!*color9:               #FF8888
-!*color2:               #66BB88
-!*color10:              #99EEBB
-!*color3:               #CC8855
-!*color11:              #FFBB88
-!*color4:               #6688BB
-!*color12:              #99BBEE
-!*color5:               #CC5588
-!*color13:              #FF88BB
-!*color6:               #66BBBB
-!*color14:              #99EEEE
-!*color7:               #BBBBBB
-!*color15:              #EEEEEE
+
+*foreground: #999999
+*background: #020202
+! black
+*color0:     #1A1A1A
+*color8:     #4C4C4C
+! red
+*color1:     #802635
+*color9:     #B3354C
+! green
+*color2:     #608040
+*color10:    #4BA65A
+! yellow
+*color3:     #877C43
+*color11:    #BF9F5F
+! blue
+*color4:     #1C678C
+*color12:    #3995BF
+! magenta
+*color5:     #684D80
+*color13:    #A64286
+! cyan
+*color6:     #337373
+*color14:    #6C98A6
+! white
+*color7:     #808080
+*color15:    #B3B3B3
+
+-----------------------
+
+!*background: #000000
+!*foreground: #717171
+!!Black
+!*color0:     #434343
+!*color8:     #5d5f5e
+!!Red
+!*color1:     #a16a71
+!*color9:     #c7838f
+!!Green
+!*color2:     #7aa16a
+!*color10:    #93c783
+!!Yellow
+!*color3:     #a1926a
+!*color11:    #c7b983
+!!Blue
+!*color4:     #6a80a1
+!*color12:    #839fc7
+!!Magenta
+!*color5:     #916aa1
+!*color13:    #c483c7
+!!Cyan
+!*color6:     #6aa0a1
+!*color14:    #83c7bc
+!!White
+!*color7:     #a8a8a8
+!*color15:    #cacac8
+
+-----------------------
+
+!*background: #000000
+!*foreground: #ffffff
+!!Black
+!*color0:     #000000
+!*color8:     #38372c
+!!Red
+!*color1:     #571dc2
+!*color9:     #7c54b0
+!!Green
+!*color2:     #14db49
+!*color10:    #a2e655
+!!Yellow
+!*color3:     #403d70
+!*color11:    #9C6F59
+!!Blue
+!*color4:     #385a70
+!*color12:    #323f5c
+!!Magenta
+!*color5:     #384894
+!*color13:    #5e6c99
+!!Cyan
+!*color6:     #4F3A5E
+!*color14:    #667d77
+!!White
+!*color7:     #999999
+!*color15:    #ffffff

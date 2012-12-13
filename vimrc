@@ -1,3 +1,5 @@
+filetype plugin indent on
+
 " putting the fundle in your <vundle>
 let iCanHazVundle=0
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -23,10 +25,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/L9'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'wlangstroth/vim-racket'
 "Bundle 'garbas/vim-snipmate'
 "Bundle 'Raimondi/delimitMate'
 "Bundle 'vim-scripts/vimwiki'
 "Bundle 'scrooloose/syntastic'
+"Bundle 'Lokaltog/vim-easymotion'
 
 " <bundles> gots to be <git>
 if iCanHazVundle == 1

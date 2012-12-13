@@ -17,7 +17,7 @@ alias grep='grep --color=auto'
 alias wicd='wicd-curses'
 alias vi='vim'
 alias battery='acpi'
-alias vid='mplayer -softvol -softvol-max 400'
+alias vid='mplayer -fs -softvol -softvol-max 400'
 alias tmux='tmux -2'
 export EDITOR=vim
 
@@ -42,3 +42,6 @@ PROMPT_COMMAND=prompt_command
 # up and down arrow history search
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
+
+export PATH="$PATH:~/bin:/home/jason/.gem/ruby/1.9.1/bin"
+source ~/.git-completion.bash
