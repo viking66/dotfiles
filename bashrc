@@ -7,6 +7,7 @@
 
 set -o vi
 shopt -s checkwinsize
+complete -cf sudo
 
 export GREP_COLOR="1;33"
 export LESS="-R"
