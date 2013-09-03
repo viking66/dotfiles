@@ -26,7 +26,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/L9'
-"Bundle 'vim-scripts/VimClojure'
+Bundle 'vim-scripts/VimClojure'
 "Bundle 'wlangstroth/vim-racket'
 "Bundle 'maxbrunsfeld/vim-yankstack'
 "Bundle 'garbas/vim-snipmate'
@@ -48,6 +48,7 @@ filetype plugin indent on
 set autoread
 set lazyredraw
 set noerrorbells
+set timeout timeoutlen=1000 ttimeoutlen=100
 
 "" Adding some color to vim
 :syntax enable

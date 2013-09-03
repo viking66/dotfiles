@@ -19,6 +19,9 @@ alias vi='vim'
 alias battery='acpi'
 alias vid='mplayer -fs -softvol -softvol-max 400'
 alias tmux='tmux -2'
+alias vpn='sudo openvpn /etc/openvpn/client.ovpn'
+alias mplayer='mplayer -softvol'
+alias luajit='rlwrap luajit'
 export EDITOR=vim
 
 prompt_command () {
@@ -43,5 +46,9 @@ PROMPT_COMMAND=prompt_command
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-export PATH="$PATH:~/bin:/home/jason/.gem/ruby/1.9.1/bin"
+export PATH="$PATH:/home/jason/bin:/home/jason/.gem/ruby/2.0.0/bin"
 source ~/.git-completion.bash
+
+alias redwm="cd ~/dwm; makepkg -g >> PKGBUILD; makepkg -efi --noconfirm; killall dwm"
+alias projector="xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1920x1080 --right-of LVDS1"
+alias tunnel="ssh -ND 8080 thespifury@panda.whatbox.ca"
