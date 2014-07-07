@@ -18,22 +18,11 @@ call vundle#rc()
 
 "" Bundles to install
 Bundle 'gmarik/vundle'
-Bundle 'michalbachowski/vim-wombat256mod'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'ervandew/supertab'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/FuzzyFinder'
-Bundle 'vim-scripts/L9'
-Bundle 'vim-scripts/VimClojure'
-"Bundle 'wlangstroth/vim-racket'
-"Bundle 'maxbrunsfeld/vim-yankstack'
-"Bundle 'garbas/vim-snipmate'
-"Bundle 'Raimondi/delimitMate'
-"Bundle 'vim-scripts/vimwiki'
-"Bundle 'scrooloose/syntastic'
-"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
 
 "" Install bundles if vundle was just installed for the first time
 if iCanHazVundle == 1
@@ -54,8 +43,9 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 :syntax enable
 set background=dark
 set t_Co=256
-:colorscheme wombat256mod
+:colorscheme solarized
 set showmatch
+set synmaxcol=120
 
 "" Backups and tmp files
 silent !mkdir -p ~/.vim/{backup,tmp}
@@ -80,8 +70,6 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "" Configure title and status bar
-set title
-set titlestring=%F\ [vim]
 set laststatus=2
 set report=0
 set showcmd
@@ -100,7 +88,7 @@ set wildmode=list:longest
 set ofu=syntaxcomplete#Complete
 set completeopt+=longest
 
-"" Supertab
+"" Supertab settings
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
@@ -110,9 +98,31 @@ set incsearch
 set ignorecase
 set smartcase
 
+"" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
 "" Ignore whitespace and case in vimdiff
 set diffopt+=iwhite
 set diffopt+=icase
+
+"" Automatically leave insert mode after 15 seconds of inactivity
+au CursorHoldI * stopinsert
+au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+au InsertLeave * let &updatetime=updaterestore
+
+"" Airline settings
+let g:airline_theme="solarized"
+let g:airline_powerline_fonts=1
+let g:powerline_loaded=1
 
 "" Set leader to ,
 let mapleader = ","
@@ -153,5 +163,7 @@ nmap <leader>s :set spell!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>h :set hlsearch!<CR>
 nmap <leader>n :exec &nu ? "set rnu" : "set nu"<CR>
-nmap <leader>c :exec &cc=="" ? "set cc=80" : "set cc="<CR>
+nmap <leader>b :exec &cc=="" ? "set cc=80" : "set cc="<CR>
+nmap <leader>c :qa<CR>
 nmap <leader>x :exec &cuc && &cul ? "set nocuc nocul" : "set cuc cul"<CR>
+nmap <leader>w :%s/ \+$//g<CR>

@@ -1,5 +1,7 @@
+xset +fp /usr/share/fonts/local
+xset fp rehash
 xbindkeys
 synclient TouchpadOff=1
 feh --bg-center Downloads/grayocean.jpg
+dropboxd &
 exec i3 -V >> ~/.i3/i3log 2>&1
-#exec dwm
