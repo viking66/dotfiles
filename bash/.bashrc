@@ -27,9 +27,16 @@ export TERMINAL="/usr/local/bin/st"
 export PATH="$PATH:/home/jason/bin:/home/jason/.gem/ruby/2.0.0/bin"
 source ~/.git-completion.bash
 
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTFILE=~/.bash_eternal_history
+export HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
 VBOX_USB=usbfs
 
 prompt_command () {
+    history -a; history -c; history -r
     local rts=$?
     local w=$(echo "${PWD/#$HOME/~}" | sed 's/.*\/\(.*\/.*\/.*\)$/\1/') # pwd max depth 3
 # pwd max length L, prefix shortened pwd with m
