@@ -37,7 +37,6 @@ shopt -s histappend
 VBOX_USB=usbfs
 
 prompt_command () {
-    history -a; history -c; history -r
     local rts=$?
     local w=$(echo "${PWD/#$HOME/~}" | sed 's/.*\/\(.*\/.*\/.*\)$/\1/') # pwd max depth 3
 # pwd max length L, prefix shortened pwd with m
@@ -52,5 +51,6 @@ prompt_command () {
     local rt="\[\033[0:32m\][\u@\h]"
     # PS1="${rt} ${w} ${p} "
     PS1="${w} ${p} "
+    history -a; history -c; history -r
 }
 PROMPT_COMMAND=prompt_command
