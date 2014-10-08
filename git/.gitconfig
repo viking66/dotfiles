@@ -16,7 +16,7 @@
 	default = simple
 [alias]
 	d = difftool
-    st = status
+    st = status -sb
     ci = commit
     br = branch
     co = checkout

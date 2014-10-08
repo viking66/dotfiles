@@ -1,34 +1,39 @@
-"" Turn filetype off until vundle is loaded
-filetype off
-
-"" Install vundle if it isn't already installed
-let iCanHazVundle=0
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing vundle..."
+"" Install vim-plug if it isn't already installed
+let shouldInstallPlugins=0
+let plug_path=expand('~/.vim/autoload/plug.vim')
+if !filereadable(plug_path)
+    echo "Installing vim-plug..."
     echo
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=1
+    silent !mkdir -p ~/.vim/autoload
+    silent !curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let shouldInstallPlugins=1
 endif
 
-"" Load vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"" Kick off vim-plug
+call plug#begin('~/.vim/plugged')
 
-"" Bundles to install
-Bundle 'gmarik/vundle'
-Bundle 'ervandew/supertab'
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
+"" Plugins to install
+Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'whatyouhide/vim-gotham'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'scrooloose/syntastic'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'Raimondi/delimitmate'
+Plug 'rainbow_parentheses.vim'
 
-"" Install bundles if vundle was just installed for the first time
-if iCanHazVundle == 1
-    echo "Installing bundles"
+"" End of plugins
+call plug#end()
+
+"" Install plugins if vim-plug was just installed for the first time
+if shouldInstallPlugins == 1
+    echo "Installing plugins"
     echo
-    :BundleInstall
+    :PlugInstall
 endif
 
 "" Make vim less annoying
@@ -43,7 +48,7 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 :syntax enable
 set background=dark
 set t_Co=256
-:colorscheme solarized
+:colorscheme gotham
 set showmatch
 set synmaxcol=120
 
@@ -120,9 +125,7 @@ au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
 "" Airline settings
-let g:airline_theme="solarized"
 let g:airline_powerline_fonts=1
-let g:powerline_loaded=1
 
 "" Set leader to ,
 let mapleader = ","
@@ -167,3 +170,18 @@ nmap <leader>b :exec &cc=="" ? "set cc=80" : "set cc="<CR>
 nmap <leader>c :qa<CR>
 nmap <leader>x :exec &cuc && &cul ? "set nocuc nocul" : "set cuc cul"<CR>
 nmap <leader>w :%s/ \+$//g<CR>
+
+"" Auto reload vimrc when changes are saved
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
+"" Use space as leader for easymotion
+map <Space> <Plug>(easymotion-prefix)
+
+"" Enable rainbow braces
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

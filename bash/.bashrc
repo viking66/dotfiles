@@ -21,6 +21,7 @@ alias tmux='tmux -2'
 alias luajit='rlwrap luajit'
 alias projector="xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1920x1080 --right-of LVDS1"
 alias noscreensaver="xset -dpms; xset s off"
+alias rmtorrent="rm ~/Downloads/*.torrent"
 export EDITOR=vim
 export TERMINAL="/usr/local/bin/st"
 
