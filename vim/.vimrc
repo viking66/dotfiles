@@ -25,6 +25,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'Raimondi/delimitmate'
 Plug 'rainbow_parentheses.vim'
+Plug 'gcmt/wildfire.vim'
+
+"" Look into vim-unimpaired - especially for yo yO...
 
 "" End of plugins
 call plug#end()
@@ -170,6 +173,8 @@ nmap <leader>b :exec &cc=="" ? "set cc=80" : "set cc="<CR>
 nmap <leader>c :qa<CR>
 nmap <leader>x :exec &cuc && &cul ? "set nocuc nocul" : "set cuc cul"<CR>
 nmap <leader>w :%s/ \+$//g<CR>
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
 
 "" Auto reload vimrc when changes are saved
 augroup reload_vimrc " {
@@ -185,3 +190,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+"" Intersting commands to add to my normal workflow
+"" gn
