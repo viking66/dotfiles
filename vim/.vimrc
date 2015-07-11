@@ -24,7 +24,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'Raimondi/delimitmate'
-Plug 'rainbow_parentheses.vim'
+Plug 'luochen1990/rainbow'
 Plug 'gcmt/wildfire.vim'
 
 "" Look into vim-unimpaired - especially for yo yO...
@@ -54,6 +54,7 @@ set t_Co=256
 :colorscheme gotham
 set showmatch
 set synmaxcol=120
+let g:rainbow_active = 1
 
 "" Backups and tmp files
 silent !mkdir -p ~/.vim/{backup,tmp}
@@ -95,6 +96,8 @@ set wildmenu
 set wildmode=list:longest
 set ofu=syntaxcomplete#Complete
 set completeopt+=longest
+set complete+=k
+au Filetype text setlocal dictionary+=/usr/share/dict/words
 
 "" Supertab settings
 let g:SuperTabDefaultCompletionType = "context"
@@ -105,6 +108,7 @@ let g:SuperTabLongestHighlight = 1
 set incsearch
 set ignorecase
 set smartcase
+set infercase
 
 "" Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -129,6 +133,7 @@ au InsertLeave * let &updatetime=updaterestore
 
 "" Airline settings
 let g:airline_powerline_fonts=1
+let g:airline_theme="gotham"
 
 "" Set leader to ,
 let mapleader = ","
@@ -169,10 +174,9 @@ nmap <leader>s :set spell!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>h :set hlsearch!<CR>
 nmap <leader>n :exec &nu ? "set rnu" : "set nu"<CR>
-nmap <leader>b :exec &cc=="" ? "set cc=80" : "set cc="<CR>
-nmap <leader>c :qa<CR>
+nmap <leader>c :exec &cc=="" ? "set cc=80" : "set cc="<CR>
 nmap <leader>x :exec &cuc && &cul ? "set nocuc nocul" : "set cuc cul"<CR>
-nmap <leader>w :%s/ \+$//g<CR>
+nmap <leader>w :%s/\s\+$//g<CR>
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
@@ -184,12 +188,6 @@ augroup END " }
 
 "" Use space as leader for easymotion
 map <Space> <Plug>(easymotion-prefix)
-
-"" Enable rainbow braces
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 "" Intersting commands to add to my normal workflow
 "" gn
