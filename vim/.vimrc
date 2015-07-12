@@ -135,6 +135,9 @@ au InsertLeave * let &updatetime=updaterestore
 let g:airline_powerline_fonts=1
 let g:airline_theme="gotham"
 
+"" Visualize tabs
+let g:indentLine_char = '│'
+
 "" Set leader to ,
 let mapleader = ","
 let g:mapleader = ","
