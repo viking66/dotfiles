@@ -18,14 +18,10 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'whatyouhide/vim-gotham'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'Raimondi/delimitmate'
 Plug 'luochen1990/rainbow'
-Plug 'gcmt/wildfire.vim'
 
 "" Look into vim-unimpaired - especially for yo yO...
 
@@ -55,6 +51,7 @@ set t_Co=256
 set showmatch
 set synmaxcol=120
 let g:rainbow_active = 1
+let g:rainbow_conf = {'ctermfgs': [3,21,93,160]}
 
 "" Backups and tmp files
 silent !mkdir -p ~/.vim/{backup,tmp}
@@ -188,9 +185,6 @@ augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
-
-"" Use space as leader for easymotion
-map <Space> <Plug>(easymotion-prefix)
 
 "" Intersting commands to add to my normal workflow
 "" gn
