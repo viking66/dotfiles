@@ -22,6 +22,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
+Plug 'guns/vim-clojure-static'
 
 "" Look into vim-unimpaired - especially for yo yO...
 
