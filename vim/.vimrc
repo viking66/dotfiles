@@ -171,6 +171,7 @@ no - ^
 no _ $
 
 map ; :
+inoremap jj <Esc>
 nmap <leader>s :set spell!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>h :set hlsearch!<CR>
